@@ -1,0 +1,23 @@
+@import 'utils';
+
+*::before, *::after, * {
+    @include reset;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @include wh100;
+    background: $light-active;
+    font-family: $inter;
+}
+
+.app {
+    @include wh100;
+    @include grid1;
+}
+
+@import 'Header';
+@import 'Page';
+@import 'Navigation';

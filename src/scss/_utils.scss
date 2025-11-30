@@ -1,0 +1,76 @@
+//mixins
+@mixin wh100 {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin reset {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@mixin grid1 {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@mixin grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+@mixin grid3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@mixin grid4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+//colors
+$dark: #131313;
+$dark-active: #424242;
+$light: #f1f8fc;
+$light-transparent: rgba(241, 248, 252, 0.671);
+$light-active: #BECAD0;
+//fonts
+$google: 'Google Sans Flex', sans-serif;
+$jost: 'Jost', sans-serif;
+$outfit: 'Outfit', sans-serif;
+$playfair: 'Playfair Display', serif;
+$playwrite: 'Playwrite NZ Guides', serif;
+$stack: 'Stack Sans Headline', sans-serif;
+$inter: 'Inter', sans-serif;
+//transitions
+$e: all 0.2s ease;
+$ei: all 0.2s ease-in;
+$eo: all 0.2s ease-out;
+$eio: all 0.2s ease-in-out;
+$eioslow: all 0.35s ease-in-out;
+//breakpoints

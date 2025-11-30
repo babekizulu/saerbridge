@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    font-family: $inter;
+    //background-color: $light-active;
+    //backdrop-filter: blur(10px);
+    //-webkit-backdrop-filter: blur(10px);
+    z-index: 5;
+    img {
+        @include flex-center;
+        margin-left: 1rem;
+    }
+    h1 {
+        @include flex-center;
+        margin-left: 1rem;
+    }
+}
+

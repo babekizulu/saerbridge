@@ -1,0 +1,115 @@
+.page { 
+    position: relative;
+    top: 60px;
+    min-height: 100vh; // use min-height instead of fixed height
+  }
+
+  .headline {
+    @include flex-center;
+    position: fixed;
+    top: 60px;
+    font-family: $playfair;
+    font-size: 5rem;
+    font-weight: 400;
+    background: $light-active;
+    margin-bottom: 2rem;
+    z-index: 0;
+  }
+  .hero-video {
+    @include flex-column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+    video {
+        @include wh100;
+        object-fit: cover;
+    }
+  }
+  .hero {
+    @include wh100;
+    @include grid1;
+    margin-top: 10rem;
+    z-index: 2;
+  }
+  .hero-content-1 {
+    position: relative;
+    top: 60px;
+    left: 0;
+    text-align: right;
+    margin-top: 28rem;
+    margin-left: 12rem;
+    z-index: 2;
+    h2 {
+      @include flex-center;
+      width: 800px;
+      font-size: 6rem;
+      font-weight: 700;
+      color: $dark;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  
+    p {
+      width: 800px;
+      background: $dark;
+      color: $light;
+      display: flex;
+      justify-content: center;
+      text-align: justify;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-family: $google;
+      .typing-cursor {
+        display: inline-block;
+        margin-left: 2px;
+        animation: blink 1s infinite;
+        color: $light;
+      }
+    }
+  }
+  .hero-content-2 {
+    position: relative;
+    top: 500px;
+    right: -800px;;
+    h2 {
+      @include flex-center;
+      width: 800px;
+      font-size: 6rem;
+      font-weight: 700;
+      color: $light;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  
+    p {
+      width: 800px;
+      display: flex;
+      justify-content: center;
+      text-align: justify;
+      align-items: center;
+      color: $light;
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-family: $google;
+  
+      .typing-cursor {
+        display: inline-block;
+        margin-left: 2px;
+        animation: blink 1s infinite;
+        color: $light;
+      }
+    }
+  }
+
+  @keyframes blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+  
