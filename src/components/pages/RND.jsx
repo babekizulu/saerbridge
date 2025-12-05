@@ -2,6 +2,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 //components
 import Link from '../Link';
+//videos
+import video1 from '../videos/Historical_Data_Visualization.mp4';
+import video2 from '../videos/Cape_Town_Data_Retrieved.mp4';
 
 // Easing function (cubic ease-out)
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
@@ -71,6 +74,10 @@ function RND() {
 
   return (
     <section className="page">
+      <div className='hero-video'>
+        <video src={video1} autoPlay muted loop aria-label="Historical Data Visualization video" onError={(e) => console.error('Error loading video:', e)} />
+        <video src={video2} autoPlay muted loop aria-label="Cape Town Data Retrieved video" onError={(e) => console.error('Error loading video:', e)} />
+      </div>
       <div
         className="headline"
         style={{
@@ -80,13 +87,69 @@ function RND() {
       >
         <h1>r&d_</h1>
       </div>
-      <div className='rnd-content'>
-        <h2>
+      <div className='article-content'>
+        <h3>
         Creating a Real-Time Geospatial Labour Market Intelligence System
-        </h2>
+        </h3>
         <p>
-            
+            <b>Aletheia is a living map of South Africa’s skills, opportunities, and needs — continuously updated by the people who live them.</b>
+            <br/>
+            <br/>
+            <br/>
+            It is built for two kinds of users:
+
+            <h3>Job-seekers</h3>
+            <ul>
+                <li>
+                    <p>
+                    Aletheia becomes your public, geographic portfolio.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                    You create a profile based on your skills, experience, and level of proficiency.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                    The platform geolocates your profile — not to your private address, but to your area or region, ensuring privacy while signalling opportunity.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                    Instead of endlessly applying to jobs, you can be discoverable, visible to employers and project creators who are actively looking for someone like you.
+                    </p>
+                </li>
+            </ul>
+            <h3>
+        Entrepreneurs & Employers
+        </h3>
+        <p>
+        <ul>
+            <li>
+                <p>
+                Aletheia gives builders, businesses, and organisations a real-time, map-based talent radar.
+                </p>
+            </li>
+            <li>
+                <p>
+                Search for specific skills across provinces, municipalities, or neighbourhoods.
+                </p>
+            </li>
+            <li>
+                <p>
+                Filter by level (beginner → expert), availability, certifications, industry, or languages.
+                </p>
+            </li>
+            <li>
+                <p>
+                Identify where a skill shortage or surplus exists — crucial for planning new businesses, hiring local talent, or designing targeted interventions.
+                </p>
+            </li>
+        </ul>
         </p>
+        </p>
+        
       </div>
     </section>
   );

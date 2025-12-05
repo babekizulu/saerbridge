@@ -15,11 +15,11 @@ function Navigation() {
                         about
                     </Link>
                 </li>
-                <li>
+                {/*<li>
                     <Link href='/products' className='nav-link liquid-glass'>
                         products
                     </Link>
-                </li>
+                </li>*/}
                 <li>
                     <Link href='/researchanddevelopment' className='nav-link liquid-glass'>
                         research & development

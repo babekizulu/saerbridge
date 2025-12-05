@@ -114,7 +114,7 @@ function About() {
       <br/>
       <br/>
       <br/>
-      <div className='about-content'>
+      <div className='article-content'>
         <h3>
         Saerbridge exists to change that.
         </h3>
