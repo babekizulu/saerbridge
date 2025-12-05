@@ -52,7 +52,6 @@ function Header() {
             style={{ backgroundColor }}
         >
             <Logo />
-            <h1>Saerbridge_</h1>
             <Navigation />
         </header>
     )

@@ -59,6 +59,9 @@ $dark-active: #424242;
 $light: #f1f8fc;
 $light-transparent: rgba(241, 248, 252, 0.671);
 $light-active: #BECAD0;
+$linkedinBlue: #0077B5;  
+$xBlack: #000000;
+$githubBlack: #181717;
 //fonts
 $google: 'Google Sans Flex', sans-serif;
 $jost: 'Jost', sans-serif;
@@ -74,3 +77,5 @@ $eo: all 0.2s ease-out;
 $eio: all 0.2s ease-in-out;
 $eioslow: all 0.35s ease-in-out;
 //breakpoints
+$mobile: 768px;
+$tablet: 1280px;

@@ -6,6 +6,7 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Products from './components/pages/Products';
 import RND from './components/pages/RND';
+import Team from './components/pages/Team';
 function App() {
     return (
         <div className='app'>
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route path='/researchanddevelopment'>
                 <RND />
+            </Route>
+            <Route path='/team'>
+                <Team />
             </Route>
         </div>
     )

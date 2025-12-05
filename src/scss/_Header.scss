@@ -1,6 +1,6 @@
 .header {
-    display: flex;
-    flex-direction: row;
+    @include flex-row;
+    justify-content: flex-start;
     width: 100%;
     height: 60px;
     position: fixed;
@@ -10,13 +10,54 @@
     //backdrop-filter: blur(10px);
     //-webkit-backdrop-filter: blur(10px);
     z-index: 5;
-    img {
-        @include flex-center;
-        margin-left: 1rem;
+    .logo {
+        text-decoration: none;
+        color: $dark;
+        @include flex-row;
+        justify-content: flex-start;
+        h1 {
+            font-size: 1.4rem;
+            margin-left: 0.5rem;
+        }
+        img {
+            margin-left: 1rem;
+        }
     }
-    h1 {
-        @include flex-center;
-        margin-left: 1rem;
+}
+
+// Tablet and Mobile breakpoints
+@media (max-width: $tablet) {
+    .header {
+        justify-content: space-between;
+        .logo {
+            text-decoration: none;
+            color: $dark;
+            @include flex-row;
+            justify-content: flex-start;
+            h1 {
+                font-size: 1.4rem;
+                margin-left: 0.5rem;
+            }
+            img {
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: $mobile) {
+    .header {
+        h1 {
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            white-space: nowrap;
+            max-width: calc(100% - 100px);
+        }
+        img {
+            margin-left: 0.5rem;
+            width: 40px;
+            height: 40px;
+        }
     }
 }
 

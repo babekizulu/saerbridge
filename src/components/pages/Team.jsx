@@ -1,11 +1,14 @@
 // libs
 import { useState, useEffect, useRef, useCallback } from 'react';
 //videos
-import video1 from '../videos/Office_Scene.mp4';
-import video2 from '../videos/Dust_Road_Scene.mp4';
+import video1 from '../videos/Lathe_in_Action.mp4';
 //components
 import Link from '../Link';
-
+//icons
+import { FaLinkedin } from 'react-icons/fa';
+import { FaXTwitter, FaGithub } from 'react-icons/fa6';
+//images
+import teamMemberImage1 from '../images/profilepic.png';
 // Easing function (cubic ease-out)
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
@@ -76,7 +79,6 @@ function About() {
     <section className="page">
         <div className='hero-video'>
             <video src={video1} autoPlay muted loop aria-label="Office Scene video" onError={(e) => console.error('Error loading video:', e)} />
-            <video src={video2} autoPlay muted loop aria-label="Dust Road Scene video" onError={(e) => console.error('Error loading video:', e)} />
         </div>
       <div
         className="headline"
@@ -85,34 +87,29 @@ function About() {
           willChange: 'transform',
         }}
       >
-        <h1>about us_</h1>
+        <h1>team_</h1>
       </div>
-      <div className='about-content'>
-        <h3>
-        At Saerbridge, we aim to bridge the gap between ingenuity and opportunity by building next-generation data visualization systems that turn the complexity of South Africa into clarity.
-        </h3>
-        <p>
-        We live in a nation overflowing with talent, creativity, and latent economic potential — yet too often these strengths remain invisible, fragmented, or underutilized.
-        Millions have skills but no platform to reveal them. Municipalities plan without real-time insight. Entrepreneurs build solutions in the dark, disconnected from local needs. Workers hustle, innovate, and create — but lack the visibility that unlocks mobility.
-        </p>
-      </div>
-      <div className='article-content'>
-        <h3>
-        Saerbridge exists to change that.
-        </h3>
-        <p>
-            We design technologies that make a <b>community legible to itself</b>:
+      <div className='team-member'>
+        <div className='member-bio'>
+            <div className='member-metadata'>
+            <h3>
+                Founder / CTO
+            </h3>
+            <p>
+                Lwandle Babekizulu Dlamini
+            </p>
+            </div>
+            <div className='team-member-image'>
+                <img src={teamMemberImage1} alt='Team Member Image' />
+            </div>
+        </div>
+        
+        <div className='social-links'>
+            <a href='https://www.linkedin.com/in/lwandle-babekizulu-dlamini/' target='_blank' rel='noopener noreferrer'><FaLinkedin className='linkedin-icon'/></a>
+            <a href='https://www.x.com/babekizulu' target='_blank' rel='noopener noreferrer'><FaXTwitter className='twitter-icon'/></a>
+            <a href='https://github.com/babekizulu' target='_blank' rel='noopener noreferrer'><FaGithub className='github-icon'/></a>
+        </div>
 
-            Tools that illuminate the <b>distribution of skills, industries, resources, and opportunities</b> across the landscape.
-
-            Interfaces that give people — from job-seekers to policymakers — a <b>single, intuitive view</b> of their economic environment.
-
-            Systems that allow citizens to <b>surface the needs, gaps, and potentials</b> of their neighbourhoods, enabling informed decision-making from the ground up.
-
-            Our mission is not just to show data; it is to <b>activate it</b>.
-            By bridging ingenuity and opportunity, we help individuals rise, businesses build, and communities self-correct.
-            We believe a more prosperous South Africa begins with a clearer map — one that reveals who we are, where we are, and what we can create together.
-        </p>
       </div>
     </section>
   );

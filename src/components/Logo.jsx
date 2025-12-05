@@ -5,8 +5,9 @@ import logo from './icons/saerbridge_logo_60x60.svg';
 
 function Logo() {
     return (
-        <Link href='/'>
+        <Link href='/' className='logo'>
             <img src={logo} alt='saerbridge logo' />
+            <h1>Saerbridge_</h1>
         </Link>
     )
 }
