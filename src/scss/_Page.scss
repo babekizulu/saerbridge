@@ -33,27 +33,46 @@
     margin-top: 10rem;
     z-index: 2;
   }
-  .hero-content-1 {
-    position: relative;
+  .learn-more {
+    position: absolute;
     top: 60px;
     left: 0;
-    text-align: right;
-    margin-top: 28rem;
-    margin-left: 12rem;
+    //@include flex-center;
+    text-decoration: none;
+    z-index: 2;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: $google;
+    color: $dark;
+    background: $light;
+    border-radius: 30px;
+    padding: 0.8rem 0.8rem;
+    transition: $eio;
+    margin-bottom: 2rem;
+    &:hover {
+      background: $light-active;
+      padding: 0.8rem 1.8rem;
+      transition: $eio;
+    }
+  }
+  .hero-content {
+    @include flex-column;
+    position: relative;
+    top: 60px;
+    margin-top: 4rem;
     z-index: 2;
     h2 {
       @include flex-center;
       width: 800px;
       font-size: 6rem;
       font-weight: 700;
-      color: $dark;
+      color: $light;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
     }
   
     p {
       width: 800px;
-      background: $dark;
       color: $light;
       display: flex;
       justify-content: center;
@@ -61,13 +80,11 @@
       align-items: center;
       font-size: 1.5rem;
       font-weight: 400;
-      font-family: $google;
-      .typing-cursor {
-        display: inline-block;
-        margin-left: 2px;
-        animation: blink 1s infinite;
-        color: $light;
-      }
+      font-family: $playfair;
+      margin-top: 2rem;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
   }
   .hero-content-2 {
@@ -79,6 +96,7 @@
       width: 800px;
       font-size: 6rem;
       font-weight: 700;
+      font-family: $google;
       color: $light;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -93,14 +111,11 @@
       color: $light;
       font-size: 1.5rem;
       font-weight: 400;
-      font-family: $google;
-  
-      .typing-cursor {
-        display: inline-block;
-        margin-left: 2px;
-        animation: blink 1s infinite;
-        color: $light;
-      }
+      font-family: $playfair;
+      margin-top: 2rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 2rem;
     }
   }
 
@@ -112,4 +127,48 @@
       opacity: 0;
     }
   }
+
+  .new-research {
+    @include flex-column;
+    position: relative;
+    top: 700px;
+    z-index: 2;
+    h2 {
+      font-size: 8rem;
+      font-weight: 700;
+      color: $dark;
+      background: $light;
+    }
+    p {
+      width: 1300px;
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-family: $google;
+      background: $light;
+      color: $dark;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 2rem;
+    }
+    
+  }
+
+  .read-more {
+    @include flex-center;
+    margin: 2rem;
+    font-size: 2rem;
+    text-decoration: none;
+    color: $dark;
+    font-family: $google;
+    background: $light;
+    border-radius: 30px;
+    padding: 0.8rem 0.8rem;
+    transition: $eio;
+    &:hover {
+      background: $light-active;
+      padding: 0.8rem 1.8rem;
+      transition: $eio;
+    }
+  }
+  
   

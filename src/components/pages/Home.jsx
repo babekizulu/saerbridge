@@ -1,9 +1,11 @@
 // libs
 import { useState, useEffect, useRef, useCallback } from 'react';
+//components
+import Link from '../Link';
 // videos
 import video1 from '../videos/Nostalgic_Scene.mp4';
 import video2 from '../videos/African_Subway.mp4';
-
+import video3 from '../videos/Contemplative_Elder.mp4';
 // Easing function (cubic ease-out)
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
@@ -28,16 +30,12 @@ function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const rafId = useRef(null);
   const isScrolling = useRef(false);
-
-  // Typing effect states
-  const [displayedHeaderText, setDisplayedHeaderText] = useState('');
-  const [displayedHeaderText2, setDisplayedHeaderText2] = useState('');
-  const [displayedText1, setDisplayedText1] = useState('');
-  const [displayedText2, setDisplayedText2] = useState('');
-
-  // Refs for paragraph containers
-  const paragraph1Ref = useRef(null);
-  const paragraph2Ref = useRef(null);
+  // Refs for parallax effect
+  const heroRef = useRef(null);
+  const newResearchH2Ref = useRef(null);
+  
+  // State for parallax translateX
+  const [newResearchTranslateX, setNewResearchTranslateX] = useState(0);
 
   const handleScroll = useCallback(() => {
     if (isScrolling.current) return;
@@ -55,52 +53,31 @@ function Home() {
       const clamped = Math.min(Math.max(raw, 0), 1);
       setScrollProgress(clamped);
 
-      // 2) Scroll-based typing effect for paragraph 1
-      if (paragraph1Ref.current) {
-        const rect = paragraph1Ref.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
+      // 4) Parallax effect for new-research h2
+      if (heroRef.current && newResearchH2Ref.current) {
+        const heroRect = heroRef.current.getBoundingClientRect();
+        // Get the absolute bottom position of hero div (relative to document)
+        const heroBottomAbsolute = scrollY + heroRect.bottom;
         
-        // Calculate when paragraph enters viewport (top of paragraph reaches bottom of viewport)
-        const entryPoint = windowHeight;
+        // Activation point: 200px above bottom of hero div
+        const activationPoint = heroBottomAbsolute - 200;
         
-        // Calculate progress: 0 when at entryPoint, 1 after scrolling TYPING_SCROLL_DISTANCE
-        let progress = 0;
-        if (rect.top <= entryPoint) {
-          progress = Math.min(
-            Math.max((entryPoint - rect.top) / TYPING_SCROLL_DISTANCE, 0),
-            1
-          );
+        // Only activate when scroll position reaches activation point
+        if (scrollY >= activationPoint) {
+          // Calculate parallax progress
+          // Distance scrolled past activation point
+          const scrolledPast = scrollY - activationPoint;
+          
+          // Parallax speed factor (adjust for desired speed)
+          const parallaxSpeed = 0.5;
+          
+          // Calculate translateX value (starts at 0, moves right as user scrolls)
+          const translateX = scrolledPast * parallaxSpeed;
+          setNewResearchTranslateX(translateX);
+        } else {
+          // Before activation point, keep at 0
+          setNewResearchTranslateX(0);
         }
-        
-        // Map progress to character index
-        const charIndex = Math.floor(progress * NARRATOR_TEXT_1.length);
-        const charIndex2 = Math.floor(progress * HEADER_TEXT.length);
-        setDisplayedHeaderText(HEADER_TEXT.slice(0, charIndex2));
-        setDisplayedText1(NARRATOR_TEXT_1.slice(0, charIndex));
-      }
-
-      // 3) Scroll-based typing effect for paragraph 2
-      if (paragraph2Ref.current) {
-        const rect = paragraph2Ref.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        
-        // Calculate when paragraph enters viewport (top of paragraph reaches bottom of viewport)
-        const entryPoint = windowHeight;
-        
-        // Calculate progress: 0 when at entryPoint, 1 after scrolling TYPING_SCROLL_DISTANCE
-        let progress = 0;
-        if (rect.top <= entryPoint) {
-          progress = Math.min(
-            Math.max((entryPoint - rect.top) / TYPING_SCROLL_DISTANCE, 0),
-            1
-          );
-        }
-        
-        // Map progress to character index
-        const charIndex = Math.floor(progress * NARRATOR_TEXT_2.length);
-        const charIndex2 = Math.floor(progress * HEADER_TEXT_2.length);
-        setDisplayedHeaderText2(HEADER_TEXT_2.slice(0, charIndex2));
-        setDisplayedText2(NARRATOR_TEXT_2.slice(0, charIndex));
       }
 
       isScrolling.current = false;
@@ -144,6 +121,14 @@ function Home() {
           aria-label="African subway video"
           onError={(e) => console.error('Error loading video:', e)}
         />
+        <video
+          src={video3}
+          autoPlay
+          muted
+          loop
+          aria-label="Contemplative elder video"
+          onError={(e) => console.error('Error loading video:', e)}
+        />
       </div>
 
       <div
@@ -155,25 +140,37 @@ function Home() {
       >
         <h1>in service of_</h1>
       </div>
-     <div className='hero'>
-        <div className="hero-content-1">
-          <h2>{displayedHeaderText}</h2>
-          <p ref={paragraph1Ref}>
-            {displayedText1}
-            {displayedText1.length < NARRATOR_TEXT_1.length && (
-              <span className="typing-cursor">|</span>
-            )}
+     <div className='hero' ref={heroRef}>
+        <div className="hero-content">
+          <h2>_bridges</h2>
+          <p>
+          At Saerbridge we aim to bridge the gap between ingenuity and opportunity by creating data visualization software to give workers, employees, entrepreneurs and local governments a seamless and intuitive view into their environment and its needs.
           </p>
+          <Link href='/about' className='read-more'>learn more</Link>
         </div>
-        <div className="hero-content-2">
-          <h2>{displayedHeaderText2}</h2>
-          <p ref={paragraph2Ref}>
-            {displayedText2}
-            {displayedText2.length < NARRATOR_TEXT_2.length && (
-              <span className="typing-cursor">|</span>
-            )}
+        
+        <div className="hero-content">
+          <h2>_maps_</h2>
+          <p>
+          The world has never been so connected, and yet so experientially disconnected due to unequal access to critical information. Our goal is to create maps that reveal the dynamics that make our economies work — and make those maps available to everyone, from every corner of the globe.
           </p>
+          <Link href='/about' className='read-more'>learn more</Link>
         </div>
+     </div>
+     <div className='new-research'>
+      <h2 
+        ref={newResearchH2Ref}
+        style={{
+          transform: `translateX(${newResearchTranslateX}px)`,
+          willChange: 'transform',
+        }}
+      >
+        Aletheia
+      </h2>
+      <p>
+      Alethea is a map for job-seekers, and aspiring entrepreneurs - it’s designed to display the distribution of skills demand across a national map of South Africa. It also allows users to create their own profiles and to be displayed on the map, in their relevant skill category. Employers and entrepreneurs can use this map to find individuals that are looking for work, based on their skill and skill level. The map also provides a filter for regional needs, which is handy for entrepreneurs trying to develop solutions for their local communities. These regional needs are measured by user reports, so that the application is relevant to users who simply want to see better service delivery in their local areas. So what is Aleatheia? A real-time geospatial labour market information system.
+      </p>
+      <Link href='/researchanddevelopment' className='read-more'>learn more</Link>
      </div>
     </section>
   );

@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Route from './components/Route';
 //pages
 import Home from './components/pages/Home';
+import About from './components/pages/About';
 import Products from './components/pages/Products';
 import RND from './components/pages/RND';
 function App() {
@@ -11,6 +12,9 @@ function App() {
             <Header />
             <Route path='/'>
                 <Home />
+            </Route>
+            <Route path='/about'>
+                <About />
             </Route>
             <Route path='/products'>
                 <Products />

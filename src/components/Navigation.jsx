@@ -11,6 +11,11 @@ function Navigation() {
                     </Link>
                 </li>
                 <li>
+                    <Link href='/about' className='nav-link liquid-glass'>
+                        about
+                    </Link>
+                </li>
+                <li>
                     <Link href='/products' className='nav-link liquid-glass'>
                         products
                     </Link>
